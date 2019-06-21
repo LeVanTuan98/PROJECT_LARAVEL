@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fontend.homepages.index');
 });
 
 Auth::routes();
@@ -140,6 +140,86 @@ Route::prefix('admin')->group(function () {
             return view('admin.content.content.tag.index') ;
         });
 
+    });
+    /*
+    * ------------------------Route_Admin_Menu--------------------
+    */
+    Route::prefix('menu')->group(function() {
+       Route::get('',function(){
+           return view('admin.content.menu.index');
+       }) ;
+        Route::get('menuitems',function(){
+            return view('admin.content.menu.menuitems.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Users--------------------
+    */
+    Route::prefix('users')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.users.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Media--------------------
+    */
+    Route::prefix('media')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.media.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Config--------------------
+    */
+    Route::prefix('config')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.config.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Newletters--------------------
+    */
+    Route::prefix('newletters')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.newletters.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Banners--------------------
+    */
+    Route::prefix('banners')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.banners.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Contact--------------------
+    */
+    Route::prefix('contact')->group(function() {
+        Route::get('',function(){
+            return view('admin.content.contact.index');
+        }) ;
+    });
+
+    /*
+    * ------------------------Route_Admin_Email--------------------
+    */
+    Route::prefix('email')->group(function() {
+        Route::get('inbox',function(){
+            return view('admin.content.email.inbox.index');
+        }) ;
+        Route::get('draft',function(){
+            return view('admin.content.email.draft.index');
+        }) ;
+        Route::get('send',function(){
+            return view('admin.content.email.send.index');
+        }) ;
     });
 });
 
