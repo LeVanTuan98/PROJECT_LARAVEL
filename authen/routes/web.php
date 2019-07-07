@@ -79,9 +79,14 @@ Route::prefix('admin')->group(function () {
      */
     Route::prefix('shop')->group(function () {
 
-        Route::get('category',function (){
-            return view('admin.content.shop.category.index') ;
-        });
+        Route::get('category', 'Admin\ShopCategoryController@index');
+        Route::get('category/create', 'Admin\ShopCategoryController@create');
+        Route::get('category/{id}/edit', 'Admin\ShopCategoryController@edit');
+        Route::get('category/{id}/delete', 'Admin\ShopCategoryController@delete');
+
+        Route::post('category','Admin\ShopCategoryController@store');
+        Route::post('category/{id}','Admin\ShopCategoryController@update');
+        Route::post('category/{id}/delete','Admin\ShopCategoryController@destroy');
 
         Route::get('product',function (){
             return view('admin.content.shop.product.index') ;
