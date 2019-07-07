@@ -78,6 +78,9 @@ Route::prefix('admin')->group(function () {
      * ------------------------Route_Admin_Shopping--------------------
      */
     Route::prefix('shop')->group(function () {
+        /*
+        * ------------------------Route_Admin_Shopping_Category--------------------
+        */
 
         Route::get('category', 'Admin\ShopCategoryController@index');
         Route::get('category/create', 'Admin\ShopCategoryController@create');
@@ -88,9 +91,18 @@ Route::prefix('admin')->group(function () {
         Route::post('category/{id}','Admin\ShopCategoryController@update');
         Route::post('category/{id}/delete','Admin\ShopCategoryController@destroy');
 
-        Route::get('product',function (){
-            return view('admin.content.shop.product.index') ;
-        });
+        /*
+       * ------------------------Route_Admin_Shopping_Product--------------------
+       */
+        Route::get('product','Admin\ShopProductController@index');
+        Route::get('product/create', 'Admin\ShopProductController@create');
+        Route::get('product/{id}/edit', 'Admin\ShopProductController@edit');
+        Route::get('product/{id}/delete', 'Admin\ShopProductController@delete');
+
+        Route::post('product','Admin\ShopProductController@store');
+        Route::post('product/{id}','Admin\ShopProductController@update');
+        Route::post('product/{id}/delete','Admin\ShopProductController@destroy');
+
 
         Route::get('order',function (){
             return view('admin.content.shop.order.index') ;
@@ -128,14 +140,35 @@ Route::prefix('admin')->group(function () {
      * ------------------------Route_Admin_Content--------------------
      */
     Route::prefix('content')->group(function () {
+    /*
+      * ------------------------Route_Admin_Content_Category--------------------
+      */
 
-        Route::get('category',function (){
-            return view('admin.content.content.category.index') ;
-        });
+        Route::get('category', 'Admin\ContentCategoryController@index');
+        Route::get('category/create', 'Admin\ContentCategoryController@create');
+        Route::get('category/{id}/edit', 'Admin\ContentCategoryController@edit');
+        Route::get('category/{id}/delete', 'Admin\ContentCategoryController@delete');
 
-        Route::get('post',function (){
-            return view('admin.content.content.post.index') ;
-        });
+        Route::post('category','Admin\ContentCategoryController@store');
+        Route::post('category/{id}','Admin\ContentCategoryController@update');
+        Route::post('category/{id}/delete','Admin\ContentCategoryController@destroy');
+
+
+        /*
+         * ------------------------Route_Admin_Content_Post--------------------
+         */
+
+
+        Route::get('post', 'Admin\ContentPostController@index');
+        Route::get('post/create', 'Admin\ContentPostController@create');
+        Route::get('post/{id}/edit', 'Admin\ContentPostController@edit');
+        Route::get('post/{id}/delete', 'Admin\ContentPostController@delete');
+
+        Route::post('post','Admin\ContentPostController@store');
+        Route::post('post/{id}','Admin\ContentPostController@update');
+        Route::post('post/{id}/delete','Admin\ContentPostController@destroy');
+
+
 
         Route::get('page',function (){
             return view('admin.content.content.page.index') ;

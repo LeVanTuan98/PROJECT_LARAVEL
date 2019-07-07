@@ -1,9 +1,10 @@
 @extends('admin.layouts.glance')
+
 @section('title')
-    Thêm mới danh mục
+    Thêm mới danh mục nội dung
 @endsection
 @section('content')
-    <h1>Thêm mới danh mục</h1>
+    <h1> Thêm mới danh mục </h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -15,7 +16,7 @@
     @endif
     <div class="row">
         <div class="form-three widget-shadow">
-            <form name="category" action="{{url('admin/shop/category')}}" method="post" class="form-horizontal">
+            <form name="category" action="{{url('admin/content/category')}}" method="post" class="form-horizontal">
                 @csrf
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên danh mục</label>
@@ -49,4 +50,6 @@
             </form>
         </div>
     </div>
+
 @endsection
+
