@@ -83,6 +83,7 @@
       <path value="$PROJECT_DIR$/authen/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/authen/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/authen/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/authen/vendor/darryldecode/cart" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

@@ -54,18 +54,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Lượt xem</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="view" value="{{old('view')}}" class="form-control1" id="focusedinput" placeholder="Lượt xem">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Giới thiệu</label>
-                    <div class="col-sm-8"><textarea name="intro" id="txtarea1" cols="50" rows="4" class="form-control1">{{old('intro')}}</textarea></div>
+                    <div class="col-sm-8"><textarea name="intro" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{old('intro')}}</textarea></div>
                 </div>
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Mô tả</label>
-                    <div class="col-sm-8"><textarea name="desc" id="txtarea1" cols="50" rows="4" class="form-control1">{{old('desc')}}</textarea></div>
+                    <div class="col-sm-8"><textarea name="desc" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{old('desc')}}</textarea></div>
                 </div>
 
                 <div class="col-sm-offset-2">

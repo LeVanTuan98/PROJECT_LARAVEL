@@ -169,26 +169,68 @@ Route::prefix('admin')->group(function () {
         Route::post('post/{id}/delete','Admin\ContentPostController@destroy');
 
 
+        /*
+        * ------------------------Route_Admin_Content_Page--------------------
+        */
 
-        Route::get('page',function (){
-            return view('admin.content.content.page.index') ;
-        });
 
-        Route::get('tag',function (){
-            return view('admin.content.content.tag.index') ;
-        });
+        Route::get('page', 'Admin\ContentPageController@index');
+        Route::get('page/create', 'Admin\ContentPageController@create');
+        Route::get('page/{id}/edit', 'Admin\ContentPageController@edit');
+        Route::get('page/{id}/delete', 'Admin\ContentPageController@delete');
+
+        Route::post('page','Admin\ContentPageController@store');
+        Route::post('page/{id}','Admin\ContentPageController@update');
+        Route::post('page/{id}/delete','Admin\ContentPageController@destroy');
+
+        /*
+       * ------------------------Route_Admin_Content_Page--------------------
+       */
+
+
+        Route::get('tag', 'Admin\ContentTagController@index');
+        Route::get('tag/create', 'Admin\ContentTagController@create');
+        Route::get('tag/{id}/edit', 'Admin\ContentTagController@edit');
+        Route::get('tag/{id}/delete', 'Admin\ContentTagController@delete');
+
+        Route::post('tag','Admin\ContentTagController@store');
+        Route::post('tag/{id}','Admin\ContentTagController@update');
+        Route::post('tag/{id}/delete','Admin\ContentTagController@destroy');
 
     });
     /*
     * ------------------------Route_Admin_Menu--------------------
     */
     Route::prefix('menu')->group(function() {
-       Route::get('',function(){
-           return view('admin.content.menu.index');
-       }) ;
-        Route::get('menuitems',function(){
-            return view('admin.content.menu.menuitems.index');
-        }) ;
+
+        /*
+       * ------------------------Route_Admin_Menu--------------------
+       */
+
+
+        Route::get('', 'Admin\MenuController@index');
+        Route::get('create', 'Admin\MenuController@create');
+        Route::get('{id}/edit', 'Admin\MenuController@edit');
+        Route::get('{id}/delete', 'Admin\MenuController@delete');
+
+        Route::post('','Admin\MenuController@store');
+        Route::post('{id}','Admin\MenuController@update');
+        Route::post('{id}/delete','Admin\MenuController@destroy');
+
+
+        /*
+     * ------------------------Route_Admin_Menu_Item--------------------
+     */
+
+
+        Route::get('menuitems', 'Admin\MenuItemController@index');
+        Route::get('menuitems/create', 'Admin\MenuItemController@create');
+        Route::get('menuitems/{id}/edit', 'Admin\MenuItemController@edit');
+        Route::get('menuitems/{id}/delete', 'Admin\MenuItemController@delete');
+
+        Route::post('menuitems','Admin\MenuItemController@store');
+        Route::post('menuitems/{id}','Admin\MenuItemController@update');
+        Route::post('menuitems/{id}/delete','Admin\MenuItemController@destroy');
     });
 
     /*
@@ -213,9 +255,12 @@ Route::prefix('admin')->group(function () {
     * ------------------------Route_Admin_Config--------------------
     */
     Route::prefix('config')->group(function() {
-        Route::get('',function(){
-            return view('admin.content.config.index');
-        }) ;
+
+        Route::get('', 'Admin\ConfigController@index');
+
+        Route::post('','Admin\ConfigController@store');
+
+
     });
 
     /*

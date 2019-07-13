@@ -66,7 +66,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{ url('/admin/menu') }}"><i class="fa fa-angle-right"></i> Menu</a></li>
-                            <li><a href="{{ url('/admin/menuitems') }}"><i class="fa fa-angle-right"></i> Menu items</a></li>
+                            <li><a href="{{ url('/admin/menu/menuitems') }}"><i class="fa fa-angle-right"></i> Menu items</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
