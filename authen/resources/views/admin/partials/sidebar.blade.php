@@ -31,6 +31,8 @@
                             <li><a href="{{ url('/admin/shop/order') }}"><i class="fa fa-angle-right"></i> Đơn hàng</a></li>
                             <li><a href="{{ url('/admin/shop/review') }}"><i class="fa fa-angle-right"></i> Đánh giá</a></li>
                             <li><a href="{{ url('/admin/shop/customer') }}"><i class="fa fa-angle-right"></i> Khách hàng</a></li>
+                            <li><a href="{{ url('/admin/shop/shipper') }}"><i class="fa fa-angle-right"></i> Nhà vận chuyển</a></li>
+                            <li><a href="{{ url('/admin/shop/seller') }}"><i class="fa fa-angle-right"></i> Nhà cung cấp</a></li>
                             <li><a href="{{ url('/admin/shop/brand') }}"><i class="fa fa-angle-right"></i> Nhãn hiệu</a></li>
                             <li><a href="{{ url('/admin/shop/statistic') }}"><i class="fa fa-angle-right"></i> Thống kê</a></li>
                         </ul>

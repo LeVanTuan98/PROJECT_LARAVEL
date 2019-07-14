@@ -111,14 +111,64 @@ Route::prefix('admin')->group(function () {
         Route::get('review',function (){
             return view('admin.content.shop.review.index') ;
         });
+        /*
+         * ------------------------Route_Customer_Manager--------------------
+         */
 
-        Route::get('customer',function (){
-            return view('admin.content.shop.customer.index') ;
-        });
+        Route::get('customer','Admin\CustomerManagerController@index');
+        Route::get('customer/create', 'Admin\CustomerManagerController@create');
+        Route::get('customer/{id}/edit', 'Admin\CustomerManagerController@edit');
+        Route::get('customer/{id}/delete', 'Admin\CustomerManagerController@delete');
 
-        Route::get('brand',function (){
-            return view('admin.content.shop.brand.index') ;
-        });
+        Route::post('customer','Admin\CustomerManagerController@store');
+        Route::post('customer/{id}','Admin\CustomerManagerController@update');
+        Route::post('customer/{id}/delete','Admin\CustomerManagerController@destroy');
+
+        /*
+        * ------------------------Route_Shipper_Manager--------------------
+        */
+
+
+        Route::get('shipper','Admin\ShipperManagerController@index');
+        Route::get('shipper/create', 'Admin\ShipperManagerController@create');
+        Route::get('shipper/{id}/edit', 'Admin\ShipperManagerController@edit');
+        Route::get('shipper/{id}/delete', 'Admin\ShipperManagerController@delete');
+
+        Route::post('shipper','Admin\ShipperManagerController@store');
+        Route::post('shipper/{id}','Admin\ShipperManagerController@update');
+        Route::post('shipper/{id}/delete','Admin\ShipperManagerController@destroy');
+
+
+        /*
+        * ------------------------Route_Seller_Manager--------------------
+        */
+
+
+        Route::get('seller','Admin\SellerManagerController@index');
+        Route::get('seller/create', 'Admin\SellerManagerController@create');
+        Route::get('seller/{id}/edit', 'Admin\SellerManagerController@edit');
+        Route::get('seller/{id}/delete', 'Admin\SellerManagerController@delete');
+
+        Route::post('seller','Admin\SellerManagerController@store');
+        Route::post('seller/{id}','Admin\SellerManagerController@update');
+        Route::post('seller/{id}/delete','Admin\SellerManagerController@destroy');
+
+
+
+        /*
+        * ------------------------Route_Brand--------------------
+        */
+
+
+        Route::get('brand','Admin\ShopBrandController@index');
+        Route::get('brand/create', 'Admin\ShopBrandController@create');
+        Route::get('brand/{id}/edit', 'Admin\ShopBrandController@edit');
+        Route::get('brand/{id}/delete', 'Admin\ShopBrandController@delete');
+
+        Route::post('brand','Admin\ShopBrandController@store');
+        Route::post('brand/{id}','Admin\ShopBrandController@update');
+        Route::post('brand/{id}/delete','Admin\ShopBrandController@destroy');
+
 
         Route::get('statistic',function (){
             return view('admin.content.shop.statistic.index') ;
@@ -240,6 +290,15 @@ Route::prefix('admin')->group(function () {
         Route::get('',function(){
             return view('admin.content.users.index');
         }) ;
+
+        Route::get('', 'Admin\AdminManagerController@index');
+        Route::get('create', 'Admin\AdminManagerController@create');
+        Route::get('{id}/edit', 'Admin\AdminManagerController@edit');
+        Route::get('{id}/delete', 'Admin\AdminManagerController@delete');
+
+        Route::post('','Admin\AdminManagerController@store');
+        Route::post('{id}','Admin\AdminManagerController@update');
+        Route::post('{id}/delete','Admin\AdminManagerController@destroy');
     });
 
     /*

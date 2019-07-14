@@ -1,12 +1,12 @@
 @extends('admin.layouts.glance')
 
 @section('title')
-    Quản trị Admin
+    Quản trị nhà vận chuyển
 @endsection
 @section('content')
-    <h1>  Quản trị Admin </h1>
+    <h1>  Quản trị nhà vận chuyển </h1>
     <div style="margin: 20px 0;" class="btn btn-success">
-        <a href="{{url ('admin/users/create')}}">Thêm admin</a>
+        <a href="{{url ('admin/shop/shipper/create')}}">Thêm shipper</a>
     </div>
     <div class="tables">
         <div class="table-responsive bs-example widget-shadow">
@@ -21,20 +21,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($admins as $admin)
+                @foreach($shippers as $shipper)
                     <tr>
-                        <th scope="row">{{$admin->id}}</th>
-                        <td>{{$admin->name}}</td>
-                        <td>{{$admin->email}}</td>
+                        <th scope="row">{{$shipper->id}}</th>
+                        <td>{{$shipper->name}}</td>
+                        <td>{{$shipper->email}}</td>
                         <td>
-                            <a href="{{url('admin/users/'.$admin->id.'/edit')}}" class="btn btn-warning">Sửa</a>
-                            <a href="{{url('admin/users/'.$admin->id.'/delete')}}" class="btn btn-danger">Xóa</a>
+                            <a href="{{url('admin/shop/shipper/'.$shipper->id.'/edit')}}" class="btn btn-warning">Sửa</a>
+                            <a href="{{url('admin/shop/shipper/'.$shipper->id.'/delete')}}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{ $admins->links() }}
+            {{ $shippers->links() }}
         </div>
     </div>
 
