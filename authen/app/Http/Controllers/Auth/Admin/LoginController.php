@@ -21,7 +21,8 @@ class LoginController extends Controller
      * Phương thức trả vể view để đăng nhập admin
      */
     public function login() {
-        return view('admin.auth.login');
+//        return view('admin.auth.login');
+        return view('admin.auth.logintemplate');
     }
     /*
      * Phương thức để đăng nhập cho admin, lấy thông tin từ form có method là POST

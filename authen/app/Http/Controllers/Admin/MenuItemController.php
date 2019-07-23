@@ -11,8 +11,15 @@ use Illuminate\Support\Facades\DB;
 class MenuItemController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware("auth:admin");
+    }
     public function index() {
         $items = DB::table('menu_items')->paginate(10);
+
+        $items = MenuItemModel::getMenuItemRecusive();
+
         $data = array();
         $data['menu_items'] = $items ;
         return view('admin.content.menu.menuitems.index',$data) ;
@@ -21,6 +28,7 @@ class MenuItemController extends Controller
         $data = array();
         $data['types'] = MenuItemModel::getTypeOfMenuItem();
         $data['menus'] = MenuModel::all();
+        $data['menuitems'] = MenuItemModel::getMenuItemRecusive();
         return view('admin.content.menu.menuitems.submit',$data);
     }
     public function store(Request $request) {

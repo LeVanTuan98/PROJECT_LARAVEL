@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 class ShopProductController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware("auth:admin");
+    }
     public function index() {
         $items = DB::table('shop_products')->paginate(10);
         $data = array();
@@ -35,12 +39,16 @@ class ShopProductController extends Controller
             'stock' => 'required|numeric',
             'cat_id' => 'required',
         ]);
+
+
+
+
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
         $item = new ShopProductModel();
         $item->name = $input['name'];
         $item->slug = $input['slug'];
-        $item->images = $input['images'];
+        $item->images = isset($input['images']) ? json_encode($input['images']) : '';
         $item->intro = $input['intro'];
         $item->desc = $input['desc'];
         $item->priceCore = $input['priceCore'];
@@ -75,7 +83,7 @@ class ShopProductController extends Controller
         $item = ShopProductModel::find($id);
         $item->name = $input['name'];
         $item->slug = $input['slug'];
-        $item->images = $input['images'];
+        $item->images = isset($input['images']) ? json_encode($input['images']) : '';
         $item->intro = $input['intro'];
         $item->desc = $input['desc'];
         $item->priceCore = $input['priceCore'];

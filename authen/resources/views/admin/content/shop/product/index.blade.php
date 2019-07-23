@@ -6,7 +6,7 @@
 @section('content')
     <h1>Quản trị sản phẩm</h1>
     <div style="margin: 20px 0;" class="btn btn-success">
-        <a href="{{url ('admin/shop/product/create')}}">Thêm danh mục</a>
+        <a href="{{url ('admin/shop/product/create')}}">Thêm sản phẩm</a>
     </div>
     <div class="tables">
         <div class="table-responsive bs-example widget-shadow">
@@ -16,7 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th>Tên</th>
-                    <th>Hình ảnh</th>
+                    <th style="width:150px;">Hình ảnh</th>
                     <th>Giá niêm yết</th>
                     <th>Giá bán</th>
                     <th>Số lượng tồn kho</th>
@@ -28,7 +28,16 @@
                     <tr>
                         <th scope="row">{{$product->id}}</th>
                         <td>{{$product->name}}</td>
-                        <td>{{$product->images}}</td>
+                        <td>
+                            <?php
+                            $images = isset($product->images) ? json_decode($product->images) : array();
+                            ?>
+                            @if(!empty($images))
+                                @foreach($images as $image)
+                                    <img src="{{asset($image)}}" style="margin-top:15px;max-height:100px;">
+                                @endforeach
+                            @endif
+                        </td>
                         <td>{{$product->priceCore}}</td>
                         <td>{{$product->priceSale}}</td>
                         <td>{{$product->stock}}</td>

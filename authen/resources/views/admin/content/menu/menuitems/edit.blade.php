@@ -24,12 +24,7 @@
                         <input type="text" name="name" class="form-control1" id="focusedinput" value="{{$menu->name}}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{$menu->slug}}">
-                    </div>
-                </div>
+
 
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Mô tả</label>

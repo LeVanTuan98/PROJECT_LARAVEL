@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminManagerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth:admin");
+    }
+
     //
     public function index() {
         $items = DB::table('admins')->paginate(10);

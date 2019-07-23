@@ -32,7 +32,8 @@ class AdminController extends Controller
      * Phương thức trả về view dùng để đăng ký tài khoản admin
      */
     public function create() {
-        return view('admin.auth.register');
+//        return view('admin.auth.register');
+        return view('admin.auth.registertemplate');
     }
     /*
      *

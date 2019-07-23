@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 class ContentPostController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware("auth:admin");
+    }
     public function index() {
         $items = DB::table('content_posts')->paginate(10);
         $data = array();

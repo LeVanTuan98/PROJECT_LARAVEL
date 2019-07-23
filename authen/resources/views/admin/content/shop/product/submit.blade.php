@@ -40,12 +40,34 @@
                         <input type="text" name="slug" value="{{old('slug')}}" class="form-control1" id="focusedinput" placeholder="Slug">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Hình ảnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="images" value="{{old('images')}}" class="form-control1" id="focusedinput" placeholder="Hình ảnh">
+
+                        <span class="input-group-btn">
+                         <a id="lfm" data-input="thumbnai" data-preview="holder" class="lfm-btn btn btn-primary">
+                           <i class="fa fa-picture-o"></i> Choose
+                         </a>
+                         <a class="btn btn-warning remove-image">
+                           <i class="fa fa-remove"></i> Xóa
+                         </a>
+                        </span>
+                        <input id="thumbnai" class="form-control" type="text" name="images[]" value="{{old('image')}}" placeholder="Hình ảnh">
+
+                        <img id="holder" style="margin-top:15px;max-height:100px;">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Thêm ảnh</label>
+                    <div class="col-sm-8">
+                        <a id="plus-image" class="btn btn-success">
+                            <i class="fa fa-plus"></i>Thêm
+                        </a>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Giá niêm yết</label>
                     <div class="col-sm-8">
@@ -79,4 +101,53 @@
             </form>
         </div>
     </div>
+
+    <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var domain = "http://localhost/PROJECT_LARAVEL/authen/public/laravel-filemanager";
+            $('.lfm-btn').filemanager('image', {prefix: domain});
+
+            $('#plus-image').on('click', function (e) {
+               e.preventDefault(); // Đê không bị chuyển hướng của thẻ a có id: plus-image
+
+                var lfm_btn_length = $('.lfm-btn').length;
+                var lfm_id_next = lfm_btn_length + 1;
+
+                var html = '';
+
+                html += '<div class="form-group">\n' +
+                    '                    <label for="focusedinput" class="col-sm-2 control-label">Hình ảnh</label>\n' +
+                    '                    <div class="col-sm-8">\n' +
+                    '\n' +
+                    '                        <span class="input-group-btn">\n' +
+                    '                         <a id="lfm'+lfm_id_next+'" data-input="thumbnail'+lfm_id_next+'" data-preview="holder'+lfm_id_next+'" class="lfm-btn btn btn-primary">\n' +
+                    '                           <i class="fa fa-picture-o"></i> Choose\n' +
+                    '                         </a>\n' +
+                    '                         <a class="btn btn-warning remove-image">\n' +
+                    '                           <i class="fa fa-remove"></i> Xóa\n' +
+                    '                         </a>\n' +
+                    '                        </span>\n' +
+                    '                        <input id="thumbnail'+lfm_id_next+'" class="form-control" type="text" name="images[]" placeholder="Hình ảnh">\n' +
+                    '\n' +
+                    '                        <img id="holder'+lfm_id_next+'" style="margin-top:15px;max-height:100px;">\n' +
+                    '\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                </div>';
+
+                var box = $(this).closest('.form-group')
+                $(html).insertBefore(box);
+
+                var domain = "http://localhost/PROJECT_LARAVEL/authen/public/laravel-filemanager";
+                $('.lfm-btn').filemanager('image', {prefix: domain});
+
+            });
+            $(body).on('click','.remove-image',function (e) {
+                e.preventDefault();
+                $(this).closest('.form-group').remove();
+            });
+        });
+
+    </script>
 @endsection

@@ -24,19 +24,19 @@
                 <tbody>
                 @foreach($menu_items as $item)
                     <tr>
-                        <th scope="row">{{$item->id}}</th>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->parent_id}}</td>
-                        <td>{{$item->menu_id}}</td>
+                        <th scope="row">{{$item['id']}}</th>
+                        <td>{{str_repeat('-',$item['level']).' '.$item['name']}}</td>
+                        <td>{{$item['parent_id']}}</td>
+                        <td>{{$item['menu_id']}}</td>
                         <td>
-                            <a href="{{url('admin/menu/menuitems/'.$item->id.'/edit')}}" class="btn btn-warning">Sửa</a>
-                            <a href="{{url('admin/menu/menuitems/'.$item->id.'/delete')}}" class="btn btn-danger">Xóa</a>
+                            <a href="{{url('admin/menu/menuitems/'.$item['id'].'/edit')}}" class="btn btn-warning">Sửa</a>
+                            <a href="{{url('admin/menu/menuitems/'.$item['id'].'/delete')}}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{ $menu_items->links() }}
+{{--            {{ $menu_items->links() }}--}}
         </div>
     </div>
 @endsection
