@@ -89,6 +89,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!-- requried-jsfiles-for owl -->
 <link href="{{ asset('admin_assets/css/owl.carousel.css') }}" rel="stylesheet">
 <script src="{{ asset('admin_assets/js/owl.carousel.js') }}"></script>
+
 <script src="{{ asset('admin_assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 <script>

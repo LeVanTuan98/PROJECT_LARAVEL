@@ -8,19 +8,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- head -->
-        @include('fontend.partials.head');
+        @include('frontend.partials.head')
     <!-- end head -->
 </head>
 
 <body>
 <!-- header -->
-    @include('fontend.partials.header');
+    @include('frontend.partials.header')
 <!-- //header -->
     @yield('content');
 <!-- newsletter -->
-    @include('fontend.partials.newletter');
+    @include('frontend.partials.newletter')
 <!-- //newsletter -->
-    @include('fontend.partials.footer');
+    @include('frontend.partials.footer')
 <!-- //cart-js -->
 </body>
 </html>

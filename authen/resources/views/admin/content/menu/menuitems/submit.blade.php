@@ -16,12 +16,18 @@
     @endif
     <div class="row">
         <div class="form-three widget-shadow">
-            <form name="menu_item" action="{{url('admin/menu/menuitems')}}" method="post" class="form-horizontal">
+            <form name="menu_item" action="{{url('admin/menuitems')}}" method="post" class="form-horizontal">
                 @csrf
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên menu-item</label>
                     <div class="col-sm-8">
                         <input type="text" name="name" value="{{old('name')}}" class="form-control1" id="focusedinput" placeholder="Tên Menu-item">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Sắp xếp</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="sort" value="{{old('sort')}}" class="form-control1" id="focusedinput" placeholder="Thứ tự sắp xếp">
                     </div>
                 </div>
                 <div class="form-group">
@@ -38,43 +44,67 @@
                 <div id="type-1" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Shop category</label>
                     <div class="col-sm-8">
-                        <input name="shop_category">
+                        <select name="params_1">
+                            @foreach($shop_categories as $shop_category)
+                                <option value="{{$shop_category->id}}">{{$shop_category->id}} - {{$shop_category->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-2" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Shop product</label>
                     <div class="col-sm-8">
-                        <input name="shop_product">
+                        <select name="params_2">
+                            @foreach($shop_products as $shop_product)
+                                <option value="{{$shop_product->id}}">{{$shop_product->id}} - {{$shop_product->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-3" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Content category</label>
                     <div class="col-sm-8">
-                        <input name="content_category">
+                        <select name="params_3">
+                            @foreach($content_categories as $content_category)
+                                <option value="{{$content_category->id}}">{{$content_category->id}} - {{$content_category->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-4" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Content post</label>
                     <div class="col-sm-8">
-                        <input name="content_post">
+                        <select name="params_4">
+                            @foreach($content_posts as $content_post)
+                                <option value="{{$content_post->id}}">{{$content_post->id}} - {{$content_post->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-5" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Content page</label>
                     <div class="col-sm-8">
-                        <input name="content_page">
+                        <select name="params_5">
+                            @foreach($content_pages as $content_page)
+                                <option value="{{$content_page->id}}">{{$content_page->id}} - {{$content_page->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-6" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Content tag</label>
                     <div class="col-sm-8">
-                        <input name="content_tag">
+                        <select name="params_6">
+                            @foreach($content_tags as $content_tag)
+                                <option value="{{$content_tag->id}}">{{$content_tag->id}} - {{$content_tag->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div id="type-7" class="form-group menu-type">
                     <label for="focusedinput" class="col-sm-2 control-label">Custom link</label>
                     <div class="col-sm-8">
-                        <input name="custom_link">
+                        <input name="params_7"  class="form-control1" value="" id="focusedinput" placeholder="Ex: www.google.com">
                     </div>
                 </div>
 
@@ -88,7 +118,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Icon</label>
                     <div class="col-sm-8">
-                        <input type="text" name="icon" value="{{old('icon')}}" class="form-control1" id="focusedinput" placeholder="Icon">
+                        <input type="text" name="icon" value="{{old('icon')}}" class="form-control1" id="focusedinput" placeholder="Ex: fa fa-shop">
                     </div>
                 </div>
                 <div class="form-group">
@@ -103,7 +133,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Menu cha</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Thuộc Menu</label>
                     <div class="col-sm-8">
                         <select name="menu_id">
                             @foreach($menus as $menu)

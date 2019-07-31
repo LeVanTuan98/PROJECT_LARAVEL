@@ -30,6 +30,20 @@
                         <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{$menu->slug}}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <div class="col-sm-8">
+                        <select name="location">
+                            <option value="0">Không hiển thị</option>
+                            @foreach($locations as $key_location => $location)
+                                <?php
+                                $selected = ($key_location == $menu->location) ? ' selected' : '';
+                                ?>
+                                <option value="{{$key_location}}" {{$selected}}>{{$location}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Mô tả</label>

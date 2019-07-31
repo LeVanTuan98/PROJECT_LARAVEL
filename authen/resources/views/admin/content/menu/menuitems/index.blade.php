@@ -6,7 +6,7 @@
 @section('content')
     <h1>Menu-items</h1>
     <div style="margin: 20px 0;" class="btn btn-success">
-        <a href="{{url ('admin/menu/menuitems/create')}}">Thêm menu-item</a>
+        <a href="{{url ('admin/menuitems/create')}}">Thêm menu-item</a>
     </div>
     <div class="tables">
         <div class="table-responsive bs-example widget-shadow">
@@ -29,8 +29,8 @@
                         <td>{{$item['parent_id']}}</td>
                         <td>{{$item['menu_id']}}</td>
                         <td>
-                            <a href="{{url('admin/menu/menuitems/'.$item['id'].'/edit')}}" class="btn btn-warning">Sửa</a>
-                            <a href="{{url('admin/menu/menuitems/'.$item['id'].'/delete')}}" class="btn btn-danger">Xóa</a>
+                            <a href="{{url('admin/menuitems/'.$item['id'].'/edit')}}" class="btn btn-warning">Sửa</a>
+                            <a href="{{url('admin/menuitems/'.$item['id'].'/delete')}}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 @endforeach

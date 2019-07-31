@@ -1,6 +1,6 @@
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
     <!--left-fixed -navigation-->
-    <aside class="sidebar-left">
+    <aside class="sidebar-left" style="overflow: auto">
         <nav class="navbar navbar-inverse">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
@@ -68,7 +68,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{ url('/admin/menu') }}"><i class="fa fa-angle-right"></i> Menu</a></li>
-                            <li><a href="{{ url('/admin/menu/menuitems') }}"><i class="fa fa-angle-right"></i> Menu items</a></li>
+                            <li><a href="{{ url('/admin/menuitems') }}"><i class="fa fa-angle-right"></i> Menu items</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

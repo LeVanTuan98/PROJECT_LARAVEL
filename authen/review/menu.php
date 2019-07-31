@@ -40,27 +40,27 @@
 
 
     $html_menu = '';
-        function BuildMenuHTML($input_category,&$html,$parent_id = -1, $level = 0){
-            if (count($input_category) > 0) {
-                $html .= "<ul class='menu-level-$level'>";
-                foreach ($input_category as $category){
-                    if ($category['parent_id'] == $parent_id){
-                        $category['level'] = $level;
-                        $html .= '<li>';
-                        $html .= $category['name'];
+    function BuildMenuHTML($input_category,&$html,$parent_id = -1, $level = 0){
+        if (count($input_category) > 0) {
+            $html .= "<ul class='menu-level-$level'>";
+            foreach ($input_category as $category){
+                if ($category['parent_id'] == $parent_id){
+                    $category['level'] = $level;
+                    $html .= '<li>';
+                    $html .= $category['name'];
 
-                        $new_parent_id = $category['id'];
-                        $new_level = $level + 1;
-                        BuildMenuHTML($input_category,$html,$new_parent_id,$new_level);
-                        $html .= '</li>';
-                    }
+                    $new_parent_id = $category['id'];
+                    $new_level = $level + 1;
+                    BuildMenuHTML($input_category,$html,$new_parent_id,$new_level);
+                    $html .= '</li>';
                 }
-                $html .= '</ul>';
             }
+            $html .= '</ul>';
         }
+    }
 
-        BuildMenuHTML($danhmuc,$html_menu);
-        echo $html_menu;
+    BuildMenuHTML($danhmuc,$html_menu);
+    echo $html_menu;
     ?>
 </body>
 </html>

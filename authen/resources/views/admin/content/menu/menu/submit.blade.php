@@ -30,6 +30,17 @@
                         <input type="text" name="slug" value="{{old('slug')}}" class="form-control1" id="focusedinput" placeholder="Slug">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <div class="col-sm-8">
+                        <select name="location">
+                            <option value="0">Không hiển thị</option>
+                            @foreach($locations as $key_location => $location)
+                                <option value="{{$key_location}}">{{$location}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Mô tả</label>

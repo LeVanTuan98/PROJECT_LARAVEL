@@ -11,13 +11,51 @@
 |
 */
 
-Route::get('/', function () {
-    return view('fontend.homepages.index');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ * Homepage Route
+ */
+Route::get('/', 'Frontend\HomePageController@index');
+
+/*
+ * Frontend route for shop category
+ */
+Route::get('shop/category/{id}', 'Frontend\ShopCategoryController@detail');
+
+/*
+ * Frontend route for shop product
+ */
+Route::get('shop/product/{id}', 'Frontend\ShopProductController@detail');
+
+/*
+ * Frontend route for cart ( giỏ hàng )
+ */
+Route::get('shop/cart', 'Frontend\ShopCartController@index');
+
+/*
+ * Frontend route for payment ( thanh toán )
+ */
+Route::get('shop/payment', 'Frontend\ShopPaymentController@index');
+
+/*
+ * Frontend route for CMS page
+ */
+Route::get('page/{id}', 'Frontend\ContentPageController@detail');
+
+/*
+ * Frontend route for content category
+ */
+Route::get('content/category/{id}', 'Frontend\ContentCategoryController@detail');
+
+/*
+ * Frontend route for content product
+ */
+Route::get('content/post/{id}', 'Frontend\ContentPostController@detail');
+
 
 /*
  * Route cho adminstrator
@@ -259,29 +297,31 @@ Route::prefix('admin')->group(function () {
 
 
         Route::get('', 'Admin\MenuController@index');
-        Route::get('create', 'Admin\MenuController@create');
-        Route::get('{id}/edit', 'Admin\MenuController@edit');
-        Route::get('{id}/delete', 'Admin\MenuController@delete');
+        Route::get('/create', 'Admin\MenuController@create');
+        Route::get('/{id}/edit', 'Admin\MenuController@edit');
+        Route::get('/{id}/delete', 'Admin\MenuController@delete');
 
-        Route::post('','Admin\MenuController@store');
-        Route::post('{id}','Admin\MenuController@update');
-        Route::post('{id}/delete','Admin\MenuController@destroy');
+        Route::post('/','Admin\MenuController@store');
+        Route::post('/{id}','Admin\MenuController@update');
+        Route::post('/{id}/delete','Admin\MenuController@destroy');
 
-
-        /*
-     * ------------------------Route_Admin_Menu_Item--------------------
-     */
-
-
-        Route::get('menuitems', 'Admin\MenuItemController@index');
-        Route::get('menuitems/create', 'Admin\MenuItemController@create');
-        Route::get('menuitems/{id}/edit', 'Admin\MenuItemController@edit');
-        Route::get('menuitems/{id}/delete', 'Admin\MenuItemController@delete');
-
-        Route::post('menuitems','Admin\MenuItemController@store');
-        Route::post('menuitems/{id}','Admin\MenuItemController@update');
-        Route::post('menuitems/{id}/delete','Admin\MenuItemController@destroy');
     });
+    /*
+  * ------------------------Route_Admin_Menu_Item--------------------
+  */
+
+    Route::prefix('menuitems')->group(function (){
+        Route::get('', 'Admin\MenuItemController@index');
+        Route::get('create', 'Admin\MenuItemController@create');
+        Route::get('{id}/edit', 'Admin\MenuItemController@edit');
+        Route::get('{id}/delete', 'Admin\MenuItemController@delete');
+
+        Route::post('','Admin\MenuItemController@store');
+        Route::post('{id}','Admin\MenuItemController@update');
+        Route::post('{id}/delete','Admin\MenuItemController@destroy');
+    });
+
+
 
     /*
     * ------------------------Route_Admin_Users--------------------
