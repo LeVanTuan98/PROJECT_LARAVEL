@@ -52,6 +52,10 @@ Route::get('page/{id}', 'Frontend\ContentPageController@detail');
 Route::get('content/category/{id}', 'Frontend\ContentCategoryController@detail');
 
 /*
+ * Frontend route for content category
+ */
+Route::get('content/tag/{id}', 'Frontend\ContentTagController@detail');
+/*
  * Frontend route for content product
  */
 Route::get('content/post/{id}', 'Frontend\ContentPostController@detail');

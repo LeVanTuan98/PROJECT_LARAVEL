@@ -1,6 +1,6 @@
 @extends('frontend.layouts.fashion')
 @section('title')
-    Danh mục nội dung
+    Tag nội dung
 @endsection
 @section('content')
 

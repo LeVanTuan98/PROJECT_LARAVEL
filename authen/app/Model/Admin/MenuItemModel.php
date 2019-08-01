@@ -140,14 +140,19 @@ class MenuItemModel extends Model
             foreach ($input_category as $category){
                 if ($category['parent_id'] == $parent_id){
                     $category['level'] = $level;
+                    if ($category['type'] == 7){
+                        $menu_link = $category['link'];
+                    }else {
+                        $menu_link = url($category['link']);
+                    }
                     if($level == 1){
                         $li_class = (isset($category['total']) && $category['total'] > 0) ? 'dropdown' : '';
                         $li_icon = (isset($category['total']) && $category['total'] > 0) ? '<b class="caret"></b>' : '';
 
-                        $html .= "<li class='".$li_class."'><a href=\"about.html\" class=\"hyper\"><span>";
+                        $html .= "<li class='".$li_class."'><a href='".$menu_link."' target='_blank' class=\"hyper\"><span>";
                         $html .= $category['name'].$li_icon;
                     } elseif ($level == 2){
-                        $html .= "<li><a href=\"jewellery.html\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>";
+                        $html .= "<li><a href='".$menu_link."' target='_blank'><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>";
                         $html .= $category['name'];
                     }else{
 

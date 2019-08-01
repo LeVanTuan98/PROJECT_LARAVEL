@@ -231,7 +231,7 @@ button.w3view-cart:focus{
 	min-height:480px;
 }
 .my-banner4{
-	background:url(../images/jewelbg.jpg) no-repeat 0px 0px;
+	/*background:url(../images/jewelbg.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	min-height:480px;
 }
@@ -2641,7 +2641,7 @@ p.w3-agile{
 		height: 24px;
 	}
 	#PPsbmincart {
-		left:25%:
+		left:25%;
 		top: 25%;
 	}
 
@@ -3010,7 +3010,7 @@ p.w3-agile{
 	}
 	#PPsbmincart {
 		left: 5%;
-		top:35%:
+		top:35%;
 	}
 }
 @media screen and (max-width: 375px){

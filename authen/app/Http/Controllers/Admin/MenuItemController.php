@@ -78,11 +78,50 @@ class MenuItemController extends Controller
 
         $item->name = $input['name'];
         $item->sort = isset($input['sort']) ? (int)$input['sort'] : 0;
-        $item->type = $input['type'];
+        $item->type = isset($input['type']) ? $input['type'] : 0;
+
+
+        /*
+            $types[1] = 'Shop Category';
+            $types[2] = 'Shop Product';
+            $types[3] = 'Content Category';
+            $types[4] = 'Content Post';
+            $types[5] = 'Content Page';
+            $types[6] = 'Content Tag';
+            $types[7] = 'Custom Link';
+         */
+        $final_link = '';
+        switch ($item->type) {
+            case 1:
+                $final_link = '/shop/category/'.(int)$params['params_1'];
+                break;
+            case 2:
+                $final_link = '/shop/product/'.(int)$params['params_2'];
+                break;
+            case 3:
+                $final_link = '/content/category/'.(int)$params['params_3'];
+                break;
+            case 4:
+                $final_link = '/content/post/'.(int)$params['params_4'];
+                break;
+            case 5:
+                $final_link = '/page/'.(int)$params['params_5'];
+                break;
+            case 6:
+                $final_link = '/content/tag/'.(int)$params['params_6'];
+                break;
+            case 7:
+                $final_link = $params['params_7'];
+                break;
+            default:
+                $final_link = '';
+                break;
+        }
+
         $item->desc = $input['desc'];
         $item->menu_id = $input['menu_id'];
         $item->params = $params_json;
-        $item->link = isset($input['link']) ? $input['link'] : '';
+        $item->link = $final_link;
         $item->icon = isset($input['icon']) ? $input['icon'] : '';
         $item->parent_id = isset($input['parent_id']) ? $input['parent_id'] : 0;
         $item->save();
@@ -153,11 +192,38 @@ class MenuItemController extends Controller
         $item->name = $input['name'];
         $item->sort = isset($input['sort']) ? (int)$input['sort'] : 0;
 
-        $item->type = $input['type'];
+        $item->type = isset($input['type']) ? $input['type'] : 0;
+
+        switch ($item->type) {
+            case 1:
+                $final_link = '/shop/category/'.(int)$params['params_1'];
+                break;
+            case 2:
+                $final_link = '/shop/product/'.(int)$params['params_2'];
+                break;
+            case 3:
+                $final_link = '/content/category/'.(int)$params['params_3'];
+                break;
+            case 4:
+                $final_link = '/content/post/'.(int)$params['params_4'];
+                break;
+            case 5:
+                $final_link = '/page/'.(int)$params['params_5'];
+                break;
+            case 6:
+                $final_link = '/content/tag/'.(int)$params['params_6'];
+                break;
+            case 7:
+                $final_link = $params['params_7'];
+                break;
+            default:
+                $final_link = '';
+                break;
+        }
         $item->desc = $input['desc'];
         $item->menu_id = $input['menu_id'];
         $item->params = $params_json;
-        $item->link = isset($input['link']) ? $input['link'] : '';
+        $item->link = $final_link;
         $item->icon = isset($input['icon']) ? $input['icon'] : '';
         $item->parent_id = isset($input['parent_id']) ? $input['parent_id'] : 0;
 
