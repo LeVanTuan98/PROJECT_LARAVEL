@@ -42,10 +42,6 @@ class ContentPageController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
-//            'view' => 'required|numeric',
-//            'author_id' => 'required|numeric',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
@@ -53,8 +49,8 @@ class ContentPageController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->view = isset($input['view']) ? $input['view'] : 0;
         $item->author_id = isset($input['author_id']) ? $input['author_id'] : 0;
         $item->save();
@@ -70,10 +66,6 @@ class ContentPageController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
-//            'view' => 'required|numeric',
-//            'author_id' => 'required|numeric',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
@@ -81,8 +73,8 @@ class ContentPageController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->view = isset($input['view']) ? $input['view'] : 0;
         $item->author_id = isset($input['author_id']) ? $input['author_id'] : 0;
         $item->save();

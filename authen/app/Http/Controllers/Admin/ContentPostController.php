@@ -44,11 +44,7 @@ class ContentPostController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
             'cat_id' => 'required|numeric',
-//            'view' => 'required|numeric',
-//            'author_id' => 'required|numeric',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
@@ -56,8 +52,8 @@ class ContentPostController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->cat_id = $input['cat_id'];
         $item->view = isset($input['view']) ? $input['view'] : 0;
         $item->author_id = isset($input['author_id']) ? $input['author_id'] : 0;
@@ -76,8 +72,6 @@ class ContentPostController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
             'cat_id' => 'required|numeric',
 
         ]);
@@ -87,8 +81,8 @@ class ContentPostController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->cat_id = $input['cat_id'];
         $item->view = isset($input['view']) ? $input['view'] : 0;
         $item->author_id = isset($input['author_id']) ? $input['author_id'] : 0;

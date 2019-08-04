@@ -45,8 +45,6 @@ class ShopCategoryController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
@@ -54,8 +52,8 @@ class ShopCategoryController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->save();
         return redirect('/admin/shop/category');
     }
@@ -70,16 +68,14 @@ class ShopCategoryController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
         ]);
         $input = $request->all();
         $item =  ShopCategoryModel::find($id);
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->save();
         return redirect('/admin/shop/category');
     }

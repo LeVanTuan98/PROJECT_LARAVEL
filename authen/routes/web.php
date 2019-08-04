@@ -331,10 +331,6 @@ Route::prefix('admin')->group(function () {
     * ------------------------Route_Admin_Users--------------------
     */
     Route::prefix('users')->group(function() {
-        Route::get('',function(){
-            return view('admin.content.users.index');
-        }) ;
-
         Route::get('', 'Admin\AdminManagerController@index');
         Route::get('create', 'Admin\AdminManagerController@create');
         Route::get('{id}/edit', 'Admin\AdminManagerController@edit');
@@ -370,18 +366,29 @@ Route::prefix('admin')->group(function () {
     * ------------------------Route_Admin_Newletters--------------------
     */
     Route::prefix('newletters')->group(function() {
-        Route::get('',function(){
-            return view('admin.content.newletters.index');
-        }) ;
+
+        Route::get('', 'Admin\NewletterController@index');
+        Route::get('create', 'Admin\NewletterController@create');
+        Route::get('{id}/edit', 'Admin\NewletterController@edit');
+        Route::get('{id}/delete', 'Admin\NewletterController@delete');
+
+        Route::post('','Admin\NewletterController@store');
+        Route::post('{id}','Admin\NewletterController@update');
+        Route::post('{id}/delete','Admin\NewletterController@destroy');
     });
 
     /*
     * ------------------------Route_Admin_Banners--------------------
     */
     Route::prefix('banners')->group(function() {
-        Route::get('',function(){
-            return view('admin.content.banners.index');
-        }) ;
+        Route::get('', 'Admin\BannerController@index');
+        Route::get('create', 'Admin\BannerController@create');
+        Route::get('{id}/edit', 'Admin\BannerController@edit');
+        Route::get('{id}/delete', 'Admin\BannerController@delete');
+
+        Route::post('','Admin\BannerController@store');
+        Route::post('{id}','Admin\BannerController@update');
+        Route::post('{id}/delete','Admin\BannerController@destroy');
     });
 
     /*

@@ -4,7 +4,7 @@
     Sửa trang
 @endsection
 @section('content')
-    <h1>Sửa trangt: {{$page->id.' : '.$page->name}}</h1>
+    <h1>Sửa trang: {{$page->id.' : '.$page->name}}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

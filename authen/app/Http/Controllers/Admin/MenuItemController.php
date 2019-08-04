@@ -62,7 +62,6 @@ class MenuItemController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'type' => 'required',
-            'desc' => 'required',
             'menu_id' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
@@ -118,7 +117,7 @@ class MenuItemController extends Controller
                 break;
         }
 
-        $item->desc = $input['desc'];
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->menu_id = $input['menu_id'];
         $item->params = $params_json;
         $item->link = $final_link;
@@ -167,7 +166,6 @@ class MenuItemController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'type' => 'required',
-            'desc' => 'required',
             'menu_id' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
@@ -220,7 +218,7 @@ class MenuItemController extends Controller
                 $final_link = '';
                 break;
         }
-        $item->desc = $input['desc'];
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->menu_id = $input['menu_id'];
         $item->params = $params_json;
         $item->link = $final_link;

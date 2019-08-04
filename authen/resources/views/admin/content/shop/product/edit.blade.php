@@ -42,6 +42,7 @@
                 </div>
 
                 <?php
+
                     $images = $product->images ? json_decode($product->images) : array();
                 ?>
                 @foreach($images as $key => $image)
@@ -94,7 +95,12 @@
                         <input type="text" name="stock" class="form-control1" id="focusedinput" value="{{$product->stock}}">
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Thông tin vận chuyển</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="ship_info" value="{{$product->ship_info}}" class="form-control1" id="focusedinput" placeholder="Thông tin vận chuyển">
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Giới thiệu</label>
@@ -104,6 +110,19 @@
                     <label for="txtarea1" class="col-sm-2 control-label">Mô tả</label>
                     <div class="col-sm-8"><textarea name="desc" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{$product->desc}}</textarea></div>
                 </div>
+                <div class="form-group">
+                    <label for="txtarea1" class="col-sm-2 control-label">Thông tin bổ sung</label>
+                    <div class="col-sm-8"><textarea name="additional_info" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{$product->additional_info}}</textarea></div>
+                </div>
+                <div class="form-group">
+                    <label for="txtarea1" class="col-sm-2 control-label">Đánh giá</label>
+                    <div class="col-sm-8"><textarea name="review" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{$product->review}}</textarea></div>
+                </div>
+                <div class="form-group">
+                    <label for="txtarea1" class="col-sm-2 control-label">Trợ giúp</label>
+                    <div class="col-sm-8"><textarea name="help" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{$product->help}}</textarea></div>
+                </div>
+
                 <div class="col-sm-offset-2">
                     <button type="submit" class="btn btn-warning">Sửa</button>
                 </div>

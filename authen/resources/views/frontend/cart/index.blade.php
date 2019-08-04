@@ -153,7 +153,7 @@
             transition: color 0.2s ease-in-out;
         }
     </style>
-<div id="custom_cart">
+    <div id="custom_cart">
     <div class="checkout">
         <div class="container">
             <h3>Your shopping cart contains: <span>3 Products</span></h3>

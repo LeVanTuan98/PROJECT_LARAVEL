@@ -44,11 +44,8 @@ class ShopProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
             'priceCore' => 'required|numeric',
             'priceSale' => 'required|numeric',
-            'stock' => 'required|numeric',
             'cat_id' => 'required',
         ]);
 
@@ -61,11 +58,15 @@ class ShopProductController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
         $item->images = isset($input['images']) ? json_encode($input['images']) : '';
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
+        $item->ship_info = isset($input['ship_info']) ? $input['ship_info'] : '';
+        $item->additional_info = isset($input['additional_info']) ? $input['additional_info'] : '';
+        $item->review = isset($input['review']) ? $input['review'] : '';
+        $item->help = isset($input['help']) ? $input['help'] : '';
         $item->priceCore = $input['priceCore'];
         $item->priceSale = $input['priceSale'];
-        $item->stock = $input['stock'];
+        $item->stock = isset($input['stock']) ? (int)$input['stock'] : 0 ;
         $item->cat_id = $input['cat_id'];
         $item->save();
         return redirect('/admin/shop/product');
@@ -83,11 +84,8 @@ class ShopProductController extends Controller
             'name' => 'required',
             'slug' => 'required',
             'images' => 'required',
-            'intro' => 'required',
-            'desc' => 'required',
             'priceCore' => 'required|numeric',
             'priceSale' => 'required|numeric',
-            'stock' => 'required|numeric',
             'cat_id' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
@@ -96,11 +94,15 @@ class ShopProductController extends Controller
         $item->name = $input['name'];
         $item->slug = $input['slug'];
         $item->images = isset($input['images']) ? json_encode($input['images']) : '';
-        $item->intro = $input['intro'];
-        $item->desc = $input['desc'];
+        $item->intro = isset($input['intro']) ? $input['intro'] : '';
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
+        $item->ship_info = isset($input['ship_info']) ? $input['ship_info'] : '';
+        $item->additional_info = isset($input['additional_info']) ? $input['additional_info'] : '';
+        $item->review = isset($input['review']) ? $input['review'] : '';
+        $item->help = isset($input['help']) ? $input['help'] : '';
         $item->priceCore = $input['priceCore'];
         $item->priceSale = $input['priceSale'];
-        $item->stock = $input['stock'];
+        $item->stock = isset($input['stock']) ? (int)$input['stock'] : 0 ;
         $item->cat_id = $input['cat_id'];
         $item->save();
         return redirect('/admin/shop/product');

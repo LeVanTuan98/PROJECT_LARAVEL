@@ -42,14 +42,13 @@ class MenuController extends Controller
     public function store(Request $request) {
         $validatedData = $request->validate([
             'name' => 'required',
-            'desc' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
         $item = new MenuModel();
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
-        $item->desc = $input['desc'];
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->location = isset($input['location']) ? $input['location'] : 0;
         $item->save();
         return redirect('/admin/menu');
@@ -63,14 +62,13 @@ class MenuController extends Controller
     public function update(Request $request,$id) {
         $validatedData = $request->validate([
             'name' => 'required',
-            'desc' => 'required',
         ]);
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
         $item = MenuModel::find($id);
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) : $this->slugify($input['name']);
-        $item->desc = $input['desc'];
+        $item->desc = isset($input['desc']) ? $input['desc'] : '';
         $item->location = isset($input['location']) ? $input['location'] : 0;
 
         $item->save();
