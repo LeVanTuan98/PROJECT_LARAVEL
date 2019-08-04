@@ -1,7 +1,7 @@
 <div class="header-top-w3layouts">
     <div class="container">
         <div class="col-md-6 logo-w3">
-            <a href="{{url('/')}}"><img src="{{asset($fe_global_settings['header_logo'])}}" alt=" " /><h1><?php echo $fe_global_settings['web_name']?></h1></a>
+            <a href="{{url('/')}}"><img src="{{asset($fe_global_settings['header_logo'])}}" alt=" " /><h1><?php echo $fe_global_settings['web_name'];?></h1></a>
         </div>
         <div class="col-md-6 phone-w3l">
             <ul>
