@@ -27,7 +27,7 @@
                         <th scope="row">{{$cat->id}}</th>
                         <td>{{$cat->name}}</td>
                         <td>{{$cat->slug}}</td>
-                        <td>{{$cat->images}}</td>
+                        <td><img src="{{asset($cat->images)}}" style="margin-top:15px;max-height:100px;"></td>
                         <td>
                             <a href="{{url('admin/content/category/'.$cat->id.'/edit')}}" class="btn btn-warning">Sửa</a>
                             <a href="{{url('admin/content/category/'.$cat->id.'/delete')}}" class="btn btn-danger">Xóa</a>

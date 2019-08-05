@@ -28,7 +28,7 @@
                             <?php
                             $images = isset($product->images) && $product->images ? json_decode($product->images) : array();
                             ?>
-                            @foreach($images as $key => $image)
+                            @foreach($images as $image)
                             <li data-thumb="{{asset($image)}}">
                                 <div class="thumb-image detail_images"> <img src="{{asset($image)}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
                             </li>

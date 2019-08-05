@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="row">{{$page->id}}</th>
                         <td>{{$page->name}}</td>
-                        <td>{{$page->images}}</td>
+                        <td><img src="{{asset($page->images)}}" style="margin-top:15px;max-height:100px;"></td>
                         <td>{{$page->author_id}}</td>
                         <td>{{$page->view}}</td>
                         <td>

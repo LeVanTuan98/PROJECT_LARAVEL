@@ -53,13 +53,84 @@
         </div>
         <div class="col-md-1 cart-wthree">
             <div class="cart">
-                <form action="#" method="post" class="last">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                <form action="{{url('/shop/cart')}}" method="get" class="last">
+                    <button class="w3view-cart" type="submit" name="submit" value="">
+                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        <span id="num_cart">3</span>
+                    </button>
                 </form>
             </div>
         </div>
         <div class="clearfix"></div>
+    </div>
+</div>
+<style type="text/css">
+    .w3view-cart {
+        position:relative;
+    }
+    #num_cart {
+        position: absolute;
+        right:0;
+        bottom:0;
+        padding: 2px 5px;
+        font-size: 10px;
+        font-weight: bold;
+        background: orange;
+        color:white;
+        border-radius: 50%;
+    }
+
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var add_cart_url =  '<?php echo url('shop/cart/add') ?>';
+        $('.pw3ls-cart').on('click',function(e){
+            e.preventDefault();
+            var dataPost = $(this).closest('form').serializeArray();
+            //Post đến controller
+            $.ajax(
+                {
+                    url: add_cart_url,
+                    dataType: 'json',
+                    type: 'POST',
+                    data: dataPost,
+                    success: function(result){
+                        // Bung Popup => Show dialog
+                        $('#myModal').modal('show');
+                    }
+                }
+            );
+        });
+
+
+    });
+</script>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Bạn đã thêm sản phẩm vào giỏ hàng thành công!</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p style="text-align: center">
+                    <a href="{{url('/shop/cart')}}" class="btn btn-success">Thanh toán</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Tiếp tục mua sắm</button>
+                </p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
     </div>
 </div>

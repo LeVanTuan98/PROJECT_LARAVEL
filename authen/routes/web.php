@@ -35,6 +35,10 @@ Route::get('shop/product/{id}', 'Frontend\ShopProductController@detail');
  * Frontend route for cart ( giỏ hàng )
  */
 Route::get('shop/cart', 'Frontend\ShopCartController@index');
+Route::post('shop/cart/add', 'Frontend\ShopCartController@add');
+Route::post('shop/cart/update', 'Frontend\ShopCartController@update');
+Route::post('shop/cart/remove', 'Frontend\ShopCartController@remove');
+Route::post('shop/cart/clear', 'Frontend\ShopCartController@clear');
 
 /*
  * Frontend route for payment ( thanh toán )

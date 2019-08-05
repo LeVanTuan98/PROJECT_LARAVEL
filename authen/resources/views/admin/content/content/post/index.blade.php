@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->name}}</td>
-                        <td>{{$post->images}}</td>
+                        <td><img src="{{asset($post->images)}}" style="margin-top:15px;max-height:100px;"></td>
                         <td>{{$post->author_id}}</td>
                         <td>{{$post->view}}</td>
                         <td>

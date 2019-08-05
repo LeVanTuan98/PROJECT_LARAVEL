@@ -33,8 +33,18 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Hình ảnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="images" value="{{old('images')}}" class="form-control1" id="focusedinput" placeholder="Hình ảnh">
+
+                        <span class="input-group-btn">
+                         <a id="lfm" data-input="thumbnai" data-preview="holder" class="lfm-btn btn btn-primary">
+                           <i class="fa fa-picture-o"></i> Choose
+                         </a>
+
+                        </span>
+                        <input id="thumbnai" class="form-control" type="text" name="images" value="{{old('images')}}" placeholder="Hình ảnh">
+
+                        <img id="holder" style="margin-top:15px;max-height:100px;">
                     </div>
+
                 </div>
                 <div class="form-group">
                     <label for="txtarea1" class="col-sm-2 control-label">Giới thiệu</label>
@@ -48,5 +58,15 @@
         </div>
     </div>
 
+    <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var domain = "http://localhost/PROJECT_LARAVEL/authen/public/laravel-filemanager";
+            $('.lfm-btn').filemanager('image', {prefix: domain});
+
+
+        });
+
+    </script>
 @endsection
 
