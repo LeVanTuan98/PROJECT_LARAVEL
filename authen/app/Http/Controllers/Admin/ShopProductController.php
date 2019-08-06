@@ -49,9 +49,6 @@ class ShopProductController extends Controller
             'cat_id' => 'required',
         ]);
 
-
-
-
 //        Để hiển thị lỗi thì phải có code show error trong file submit
         $input = $request->all();
         $item = new ShopProductModel();
@@ -68,6 +65,7 @@ class ShopProductController extends Controller
         $item->priceSale = $input['priceSale'];
         $item->stock = isset($input['stock']) ? (int)$input['stock'] : 0 ;
         $item->cat_id = $input['cat_id'];
+        $item->homepage = isset($input['homepage']) ? (int)$input['homepage'] : 0;
         $item->save();
         return redirect('/admin/shop/product');
     }
@@ -104,6 +102,8 @@ class ShopProductController extends Controller
         $item->priceSale = $input['priceSale'];
         $item->stock = isset($input['stock']) ? (int)$input['stock'] : 0 ;
         $item->cat_id = $input['cat_id'];
+        $item->homepage = isset($input['homepage']) ? (int)$input['homepage'] : 0;
+
         $item->save();
         return redirect('/admin/shop/product');
     }

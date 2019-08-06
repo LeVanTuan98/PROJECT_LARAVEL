@@ -40,6 +40,15 @@
                         <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{$product->slug}}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Home Page</label>
+                    <div class="col-sm-8">
+                        <select name="homepage">
+                            <option value="0" <?php echo ($product->homepage == 0) ? ' selected' : ''?> >Không hiển thị</option>
+                            <option value="1" <?php echo ($product->homepage == 1) ? ' selected' : ''?>>Hiển thị</option>
+                        </select>
+                    </div>
+                </div>
 
                 <?php
 

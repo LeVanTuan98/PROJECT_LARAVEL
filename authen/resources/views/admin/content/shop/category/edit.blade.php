@@ -31,6 +31,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Home Page</label>
+                    <div class="col-sm-8">
+                        <select name="homepage">
+                            <option value="0" <?php echo ($cat->homepage == 0) ? ' selected' : ''?> >Không hiển thị</option>
+                            <option value="1" <?php echo ($cat->homepage == 1) ? ' selected' : ''?>>Hiển thị</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Hình ảnh</label>
                     <div class="col-sm-8">
 

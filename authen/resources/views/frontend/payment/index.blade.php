@@ -156,7 +156,7 @@
     <div id="custom_cart">
         <div class="checkout">
             <div class="container">
-                <h3>Your shopping cart contains: <span>3 Products</span></h3>
+                <h3>Your shopping cart contains: <span>{{\Cart::getTotalQuantity()}} Products</span></h3>
                 <!---728x90--->
 
                 <div class="checkout-right">
@@ -165,43 +165,39 @@
                         <tr>
                             <th>SL No.</th>
                             <th>Product</th>
-                            <th>Quality</th>
+                            <th>Quantity</th>
                             <th>Product Name</th>
-                            <th>Service Charges</th>
                             <th>Price</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
-                        <tbody><tr class="rem1">
-                            <td class="invert">1</td>
-                            <td class="invert-image"><a href="single.html"><img src="images/j3.jpg" alt=" " class="img-responsive"></a></td>
-                            <td class="invert">
-                                1
-                            </td>
-                            <td class="invert">Beige solid Chinos</td>
-                            <td class="invert">$5.00</td>
-                            <td class="invert">$200.00</td>
-                        </tr>
-                        <tr class="rem2">
-                            <td class="invert">2</td>
-                            <td class="invert-image"><a href="single.html"><img src="images/ss5.jpg" alt=" " class="img-responsive"></a></td>
-                            <td class="invert">
-                                2
-                            </td>
-                            <td class="invert">Floral Border Skirt</td>
-                            <td class="invert">$5.00</td>
-                            <td class="invert">$270.00</td>
-                        </tr>
-                        <tr class="rem3">
-                            <td class="invert">3</td>
-                            <td class="invert-image"><a href="single.html"><img src="images/c7.jpg" alt=" " class="img-responsive"></a></td>
-                            <td class="invert">
-                                3
-                            </td>
-                            <td class="invert">Beige Sandals</td>
-                            <td class="invert">$5.00</td>
-                            <td class="invert">$212.00</td>
-                        </tr>
-                        </tbody></table>
+                        <tbody>
+                        <?php $i = 1;?>
+                        @foreach($cart_products as $product)
+                            <tr class="rem{{$i}}">
+                                <td class="invert">{{$i}}</td>
+                                <td class="invert-image">
+                                    <a href="{{url('shop/product/'.$product->id)}}">
+                                        <?php
+                                        $images = $product->attributes->image ? json_decode($product->attributes->image) : array();
+                                        ?>
+                                        @foreach($images as $image)
+                                            <img src="{{asset($image)}}" style="max-width: 150px;margin: 10px auto;" class="img-responsive">
+                                            @break
+                                        @endforeach
+                                    </a>
+                                </td>
+                                <td class="invert">
+                                    {{$product->quantity}}
+                                </td>
+                                <td class="invert">{{$product->name}}</td>
+                                <td class="invert">VND {{number_format($product->price,0,'.','.')}}</td>
+                                <td class="invert">VND {{number_format(($product->price) * ($product->quantity),0,'.','.')}}</td>
+                            </tr>
+                            <?php $i++;?>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
@@ -300,34 +296,22 @@
         }
     </style>
 
+    <h1>VND {{number_format($total_payment,0,'.','.')}}</h1>
 <div id="w3Payment">
     <div class="row">
         <div class="col-75" style="margin-top: 20px">
             <div class="container">
-                <form action="/action_page.php">
-
+                <form name="order_form" action="{{url('shop/payment')}}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-50">
                             <h3>Billing Address</h3>
                             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                            <input type="text" id="fname" name="customer_name" placeholder="John M. Doe">
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com">
+                            <input type="text" id="email" name="customer_email" placeholder="john@example.com">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                            <label for="city"><i class="fa fa-institution"></i> City</label>
-                            <input type="text" id="city" name="city" placeholder="New York">
-
-                            <div class="row">
-                                <div class="col-50">
-                                    <label for="state">State</label>
-                                    <input type="text" id="state" name="state" placeholder="NY">
-                                </div>
-                                <div class="col-50">
-                                    <label for="zip">Zip</label>
-                                    <input type="text" id="zip" name="zip" placeholder="10001">
-                                </div>
-                            </div>
+                            <input type="text" id="adr" name="customer_address" placeholder="542 W. 15th Street">
                         </div>
 
                         <div class="col-50">
@@ -339,29 +323,25 @@
                                 <i class="fa fa-cc-mastercard" style="color:red;"></i>
                                 <i class="fa fa-cc-discover" style="color:orange;"></i>
                             </div>
-                            <label for="cname">Name on Card</label>
-                            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                            <label for="ccnum">Credit card number</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                            <label for="expmonth">Exp Month</label>
-                            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                            <input type="text" id="city" name="customer_city" placeholder="New York">
 
                             <div class="row">
                                 <div class="col-50">
-                                    <label for="expyear">Exp Year</label>
-                                    <input type="text" id="expyear" name="expyear" placeholder="2018">
+                                    <label for="state">Country</label>
+                                    <input type="text" id="customer_country" name="customer_country" placeholder="VN">
                                 </div>
                                 <div class="col-50">
-                                    <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="352">
+                                    <label for="zip">Phone</label>
+                                    <input type="text" id="customer_phone" name="customer_phone" placeholder="0981234567">
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <label>
-                        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-                    </label>
+                    <div>
+                        <label for="cname">Note</label>
+                        <textarea name="customer_note" style="width: 100%" rows="10"></textarea>
+                    </div>
                     <input type="submit" value="Continue to checkout" class="btn">
                 </form>
             </div>

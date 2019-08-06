@@ -62,6 +62,9 @@ class AppServiceProvider extends ServiceProvider
         $menu_items_footer2 = MenuItemModel::getMenuItemByFooter2();
         $menu_items_footer3 = MenuItemModel::getMenuItemByFooter3();
 
+//        $cartTotalQuantity = \Cart::getTotalQuantity();
+
+//        View::share('fe_cartTotalQuantity', $cartTotalQuantity);
         View::share('fe_global_settings', $global_settings);
         View::share('fe_menu_header', $menu_header);
         View::share('fe_menu_items_footer1', $menu_items_footer1);

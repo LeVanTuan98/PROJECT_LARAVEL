@@ -19,9 +19,6 @@ class ShopCategoryController extends Controller
         $items = DB::table('shop_category')->paginate(10);
         $data = array();
         $data['cats'] = $items ;
-//        echo "<pre>";
-//        dump($data);
-//        echo "</pre>";
         return view('admin.content.shop.category.index',$data) ;
     }
     public function create() {
@@ -54,6 +51,7 @@ class ShopCategoryController extends Controller
         $item->images = $input['images'];
         $item->intro = isset($input['intro']) ? $input['intro'] : '';
         $item->desc = isset($input['desc']) ? $input['desc'] : '';
+        $item->homepage = isset($input['homepage']) ? (int)$input['homepage'] : 0;
         $item->save();
         return redirect('/admin/shop/category');
     }
@@ -76,6 +74,7 @@ class ShopCategoryController extends Controller
         $item->images = $input['images'];
         $item->intro = isset($input['intro']) ? $input['intro'] : '';
         $item->desc = isset($input['desc']) ? $input['desc'] : '';
+        $item->homepage = isset($input['homepage']) ? (int)$input['homepage'] : 0;
         $item->save();
         return redirect('/admin/shop/category');
     }

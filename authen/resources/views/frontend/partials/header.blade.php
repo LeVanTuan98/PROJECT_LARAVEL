@@ -56,7 +56,7 @@
                 <form action="{{url('/shop/cart')}}" method="get" class="last">
                     <button class="w3view-cart" type="submit" name="submit" value="">
                         <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                        <span id="num_cart">3</span>
+                        <span id="num_cart">{{\Cart::getTotalQuantity()}}</span>
                     </button>
                 </form>
             </div>
@@ -85,7 +85,7 @@
     $(document).ready(function () {
 
         var add_cart_url =  '<?php echo url('shop/cart/add') ?>';
-        $('.pw3ls-cart').on('click',function(e){
+        $('.pw3ls-cart,.w3ls-cart').on('click',function(e){
             e.preventDefault();
             var dataPost = $(this).closest('form').serializeArray();
             //Post đến controller
@@ -121,8 +121,8 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <p style="text-align: center">
-                    <a href="{{url('/shop/cart')}}" class="btn btn-success">Thanh toán</a>
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Tiếp tục mua sắm</button>
+                    <a href="{{url('/shop/cart')}}" class="btn btn-success">Payment</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Continue Shopping</button>
                 </p>
             </div>
 

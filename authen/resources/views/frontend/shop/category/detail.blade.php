@@ -43,7 +43,7 @@
                             @endforeach
                         @endif
                         <div class="p-mask">
-                            <form action="#" method="post">
+                            <form action="{{url('shop/cart/add')}}" method="post">
                                 @csrf
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />

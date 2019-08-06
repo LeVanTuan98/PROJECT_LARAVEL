@@ -72,12 +72,13 @@
                     <p class="single-price-text">
                         <?php echo $product->intro?>
                     </p>
-                    <form action="#" method="post">
+                    <form action="{{url('shop/cart/add')}}" method="post">
+                        @csrf
                         <input type="hidden" name="cmd" value="_cart" />
                         <input type="hidden" name="add" value="1" />
-                        <input type="hidden" name="w3ls1_item" value="Handbag" />
-                        <input type="hidden" name="amount" value="540.00" />
-                        <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                        <input type="hidden" name="w3ls1_item" value="{{$product->id}}" />
+                        <input type="hidden" name="amount" value="{{$product->priceSale}}" />
+                        <button type="submit" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
                     </form>
                     <button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
                 </div>

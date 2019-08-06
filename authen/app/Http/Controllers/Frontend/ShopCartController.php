@@ -13,17 +13,9 @@ class ShopCartController extends Controller
         $data = array();
 
         $cartCollection = \Cart::getContent();
-
-// NOTE: Because cart collection extends Laravel's Collection
-// You can use methods you already know about Laravel's Collection
-// See some of its method below:
-
-// count carts contents
-        $cartCollection->count();
-
-// transformations
-        $cartCollection->toArray();
-        $cartCollection->toJson();
+        $total = \Cart::getTotal();
+        $data['cart_products'] = $cartCollection;
+        $data['total_payment'] = $total;
 
         return view ('frontend.cart.index',$data);
     }
@@ -44,26 +36,69 @@ class ShopCartController extends Controller
                 'name' => $product->name,
                 'price' => $product->priceSale,
                 'quantity' => $quatity,
-                'attributes' => array()
+                'attributes' => array(
+                    'image' => $product->images,
+                )
             ));
+
             $response['status'] = 1;
+            session()->save();
         }
         echo json_encode($response);
         exit;
     }
 
     // Update to cart
-    public function update() {
+    public function update(Request $request) {
+        $input = $request->all();
+
+        $product_id = (int)$input['product_id'];
+        $quatity = (int)$input['quantity'];
+
+        $product = ShopProductModel::find($product_id);
+        $response['status'] = 0;
+        if ($product->id) {
+
+            \Cart::update($product->id, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $quatity
+                ),
+            ));
+
+            $response['status'] = 1;
+            session()->save();
+        }
+        echo json_encode($response);
+        exit;
+
+
+
 
     }
 
     // Remove giỏ hàng
-    public function remove(){
+    public function remove(Request $request){
+        $input = $request->all();
+
+        $product_id = (int)$input['product_id'];
+
+        $product = ShopProductModel::find($product_id);
+        $response['status'] = 0;
+        if ($product->id) {
+            \Cart::remove($product->id);
+
+            $response['status'] = 1;
+            session()->save();
+        }
+        echo json_encode($response);
+        exit;
+
 
     }
 
     // Clear toàn bộ giỏ hàng
     public function clear() {
-
+        \Cart::clear();
     }
 }

@@ -5,41 +5,48 @@
 @endsection
 
 @section('content')
-<div class="banner-agile">
+@if(isset($banner_main->id))
+<div class="banner-agile" style="background-image: url('{{asset($banner_main->image)}}')">
     <div class="container">
-        <h2>WELCOME TO</h2>
-        <h3>FASHION <span>CLUB</span></h3>
-        <p>Suspendisse sed tellus id libero pretium interdum. Suspendisse potenti. Quisque consectetur elit sit amet vehicula tristique. </p>
-        <a href="about.html">Read More</a>
+        <?php echo $banner_main->desc ?>
+        <a href="{{$banner_main->link}}">Read More</a>
     </div>
 </div>
+@endif
 <div class="banner-bootom-w3-agileits">
     <div class="container">
         <div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-            <a href="women.html"><div class="bb-left-agileits-w3layouts-inner">
-                    <h3>SALE</h3>
-                    <h4>upto<span>75%</span></h4>
+            @if(isset($banner_sale_1->id))
+            <a href="{{$banner_sale_1->link}}"><div class="bb-left-agileits-w3layouts-inner" style="background-image: url('{{asset($banner_sale_1->image)}}')">
+                    <?php echo $banner_sale_1->desc ?>
                 </div></a>
+            @endif
         </div>
+
+
         <div class="col-md-4 bb-grids bb-middle-agileits-w3layouts">
-            <a href="shoes.html"><div class="bb-middle-top">
-                    <h3>SALE</h3>
-                    <h4>upto<span>55%</span></h4>
+            @if(isset($banner_sale_2->id))
+            <a href="{{$banner_sale_2->link}}"><div class="bb-middle-top" style="background-image: url('{{asset($banner_sale_2->image)}}')">
+                    <?php echo $banner_sale_2->desc ?>
                 </div></a>
-            <a href="jewellery.html"><div class="bb-middle-bottom">
-                    <h3>SALE</h3>
-                    <h4>upto<span>65%</span></h4>
+            @endif
+            @if(isset($banner_sale_3->id))
+            <a href="{{$banner_sale_3->link}}"><div class="bb-middle-bottom" style="background-image: url('{{asset($banner_sale_3->image)}}')">
+                    <?php echo $banner_sale_3->desc ?>
                 </div></a>
+            @endif
         </div>
         <div class="col-md-3 bb-grids bb-right-agileits-w3layouts">
-            <a href="watches.html"><div class="bb-right-top">
-                    <h3>SALE</h3>
-                    <h4>upto<span>50%</span></h4>
+            @if(isset($banner_sale_4->id))
+            <a href="{{$banner_sale_4->link}}"><div class="bb-right-top" style="background-image: url('{{asset($banner_sale_4->image)}}')">
+                    <?php echo $banner_sale_4->desc ?>
                 </div></a>
-            <a href="handbags.html"><div class="bb-right-bottom">
-                    <h3>SALE</h3>
-                    <h4>upto<span>60%</span></h4>
+            @endif
+            @if(isset($banner_sale_5->id))
+            <a href="{{$banner_sale_5->link}}"><div class="bb-right-bottom" style="background-image: url('{{asset($banner_sale_5->image)}}')">
+                    <?php echo $banner_sale_5->desc ?>
                 </div></a>
+            @endif
         </div>
         <div class="clearfix"></div>
     </div>
@@ -845,21 +852,11 @@
         <h3>Top Brands</h3>
         <div class="sliderfig">
             <ul id="flexiselDemo1">
-                <li>
-                    <img src="{{asset('frontend_assets/images/4.png')}}" alt=" " class="img-responsive" />
-                </li>
-                <li>
-                    <img src="{{asset('frontend_assets/images/5.png')}}" alt=" " class="img-responsive" />
-                </li>
-                <li>
-                    <img src="{{asset('frontend_assets/images/6.png')}}" alt=" " class="img-responsive" />
-                </li>
-                <li>
-                    <img src="{{asset('frontend_assets/images/7.png')}}" alt=" " class="img-responsive" />
-                </li>
-                <li>
-                    <img src="{{asset('frontend_assets/images/46.jpg')}}" alt=" " class="img-responsive" />
-                </li>
+                @foreach($brands as $brand)
+                    <li>
+                        <img src="{{asset($brand->images)}}" alt=" " class="img-responsive" />
+                    </li>
+                @endforeach
             </ul>
         </div>
         <script type="text/javascript">
