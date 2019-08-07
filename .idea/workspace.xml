@@ -2,49 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1256fa0b-cecb-4964-8818-0e4e7fd2ff98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authen/resources/views/frontend/newletter/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authen/resources/views/frontend/search/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/NewletterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/SearchController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authen/app/Model/Front/NewletterModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authen/database/migrations/2019_08_07_053316_add_tag_to_content_posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/AdminManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/AdminManagerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/BannerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentPageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentPostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentTagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ContentTagController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/CustomerManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/CustomerManagerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/MenuItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/MenuItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/NewletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/NewletterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/SellerManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/SellerManagerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShipperManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShipperManagerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopBrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopBrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Admin/ShopProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/ContentCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/ContentCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/ContentTagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/ContentTagController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/HomePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/app/Http/Controllers/Frontend/HomePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/banners/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/banners/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/content/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/content/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/content/page/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/content/page/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/content/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/content/post/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/content/tag/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/content/tag/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/menu/menu/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/menu/menu/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/newletters/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/newletters/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/brand/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/customer/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/seller/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/seller/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/shipper/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/shop/shipper/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/admin/content/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/admin/content/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/frontend/content/category/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/frontend/content/category/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/frontend/content/tag/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/frontend/content/tag/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/frontend/homepages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/frontend/homepages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/frontend/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/frontend/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/resources/views/frontend/partials/newletter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/resources/views/frontend/partials/newletter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authen/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/authen/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,16 +38,14 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/content/banners/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-330" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/layouts/glance.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="220">
+              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -93,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/authen/app/Http/Controllers/Admin/BannerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="418">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -306,7 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -411,12 +370,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/authen/resources/views/frontend/newletter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -514,7 +474,9 @@
       <workItem from="1564974386241" duration="7527000" />
       <workItem from="1565010022501" duration="7620000" />
       <workItem from="1565052805053" duration="30709000" />
-      <workItem from="1565145675756" duration="18268000" />
+      <workItem from="1565145675756" duration="18797000" />
+      <workItem from="1565183464433" duration="53000" />
+      <workItem from="1565193079899" duration="1038000" />
     </task>
     <task id="LOCAL-00001" summary="22/6/19">
       <created>1561136503407</created>
@@ -625,7 +587,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311581000" />
+    <option name="totallyTimeSpent" value="313201000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -638,9 +600,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.36666667" visible="true" weight="0.21860817" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.36666667" visible="true" weight="0.2246596" />
       <window_info id="Structure" order="2" sideWeight="0.6333333" side_tool="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -700,13 +663,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="7/8/19" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/authen/app/Model/Front/NewletterModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/authen/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -999,22 +955,23 @@
     <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/partials/header.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/content/banners/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/authen/app/Http/Controllers/Admin/BannerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="418">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/content/banners/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/authen/artisan">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/authen/resources/views/admin/layouts/glance.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="220">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
         </state>
       </provider>
     </entry>
