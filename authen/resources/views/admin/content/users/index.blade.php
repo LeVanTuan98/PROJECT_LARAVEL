@@ -13,7 +13,7 @@
     </div>
     <div class="tables">
         <div class="table-responsive bs-example widget-shadow">
-            <h4>Tổng số:</h4>
+            <h4>Tổng số:  {{$total}}</h4>
             <table class="table table-bordered">
                 <thead>
                 <tr>

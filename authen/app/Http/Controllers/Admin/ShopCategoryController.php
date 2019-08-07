@@ -19,6 +19,8 @@ class ShopCategoryController extends Controller
         $items = DB::table('shop_category')->paginate(10);
         $data = array();
         $data['cats'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.shop.category.index',$data) ;
     }
     public function create() {

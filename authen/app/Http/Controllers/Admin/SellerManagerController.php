@@ -14,6 +14,8 @@ class SellerManagerController extends Controller
         $items = DB::table('sellers')->paginate(10);
         $data = array();
         $data['sellers'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.shop.seller.index',$data) ;
     }
     public function create() {

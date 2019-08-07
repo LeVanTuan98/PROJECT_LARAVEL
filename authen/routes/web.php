@@ -22,6 +22,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Frontend\HomePageController@index');
 
 /*
+ * Route Search
+ */
+Route::get('/search','Frontend\SearchController@index');
+/*
+ * Route Newletter
+ */
+Route::get('/newletter','Frontend\NewletterController@index');
+Route::post('/newletter','Frontend\NewletterController@store');
+/*
  * Frontend route for shop category
  */
 Route::get('shop/category/{id}', 'Frontend\ShopCategoryController@detail');

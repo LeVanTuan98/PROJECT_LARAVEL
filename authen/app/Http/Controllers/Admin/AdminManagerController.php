@@ -19,6 +19,7 @@ class AdminManagerController extends Controller
         $items = DB::table('admins')->paginate(10);
         $data = array();
         $data['admins'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.users.index',$data) ;
     }
     public function create() {

@@ -18,6 +18,7 @@ class ContentTagController extends Controller
         $items = DB::table('content_tags')->paginate(10);
         $data = array();
         $data['tags'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.content.tag.index',$data) ;
     }
     public function create() {

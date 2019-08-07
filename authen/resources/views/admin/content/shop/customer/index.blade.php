@@ -10,7 +10,7 @@
     </div>
     <div class="tables">
         <div class="table-responsive bs-example widget-shadow">
-            <h4>Tổng số:</h4>
+            <h4>Tổng số:  {{$total}}</h4>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -21,20 +21,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($admins as $admin)
+                @foreach($customers as $customer)
                     <tr>
-                        <th scope="row">{{$admin->id}}</th>
-                        <td>{{$admin->name}}</td>
-                        <td>{{$admin->email}}</td>
+                        <th scope="row">{{$customer->id}}</th>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
                         <td>
-                            <a href="{{url('admin/users/'.$admin->id.'/edit')}}" class="btn btn-warning">Sửa</a>
-                            <a href="{{url('admin/users/'.$admin->id.'/delete')}}" class="btn btn-danger">Xóa</a>
+                            <a href="{{url('admin/users/'.$customer->id.'/edit')}}" class="btn btn-warning">Sửa</a>
+                            <a href="{{url('admin/users/'.$customer->id.'/delete')}}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{ $admins->links() }}
+            {{ $customers->links() }}
         </div>
     </div>
 

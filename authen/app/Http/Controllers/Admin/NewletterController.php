@@ -18,6 +18,8 @@ class NewletterController extends Controller
         $items = DB::table('newletters')->paginate(10);
         $data = array();
         $data['newletters'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.newletters.index',$data);
     }
     public function create() {

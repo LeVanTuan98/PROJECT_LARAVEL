@@ -14,6 +14,8 @@ class ShipperManagerController extends Controller
         $items = DB::table('shippers')->paginate(10);
         $data = array();
         $data['shippers'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.shop.shipper.index',$data) ;
     }
     public function create() {

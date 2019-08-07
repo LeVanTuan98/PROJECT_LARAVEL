@@ -20,6 +20,7 @@ class ContentCategoryController extends Controller
         $items = DB::table('content_category')->paginate(10);
         $data = array();
         $data['cats'] = $items;
+        $data['total'] = $items->total();
         return view('admin.content.content.category.index', $data);
     }
     public function create() {

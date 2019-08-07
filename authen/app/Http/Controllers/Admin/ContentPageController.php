@@ -19,6 +19,7 @@ class ContentPageController extends Controller
         $items = DB::table('content_pages')->paginate(10);
         $data = array();
         $data['pages'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.content.page.index',$data) ;
     }
     public function create() {

@@ -19,6 +19,7 @@ class ShopProductController extends Controller
         $items = DB::table('shop_products')->paginate(10);
         $data = array();
         $data['products'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.shop.product.index',$data) ;
     }
     public function create() {

@@ -19,6 +19,7 @@ class ContentPostController extends Controller
         $items = DB::table('content_posts')->paginate(10);
         $data = array();
         $data['posts'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.content.post.index',$data) ;
     }
     public function create() {

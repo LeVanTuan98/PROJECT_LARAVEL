@@ -18,6 +18,7 @@ class BannerController extends Controller
         $items = DB::table('banners')->paginate(10);
         $data = array();
         $data['banners'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.banners.index',$data);
     }
     public function create() {

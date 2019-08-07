@@ -17,6 +17,7 @@ class CustomerManagerController extends Controller
         $items = DB::table('users')->paginate(10);
         $data = array();
         $data['customers'] = $items ;
+        $data['total'] = $items->total();
         return view('admin.content.shop.customer.index',$data) ;
     }
     public function create() {

@@ -20,6 +20,8 @@ class MenuController extends Controller
         $items = DB::table('menus')->paginate(10);
         $data = array();
         $data['menus'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.menu.menu.index',$data) ;
     }
     public function create() {

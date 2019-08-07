@@ -18,6 +18,8 @@ class ShopBrandController extends Controller
         $items = DB::table('shop_brands')->paginate(10);
         $data = array();
         $data['brands'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.shop.brand.index',$data) ;
     }
 

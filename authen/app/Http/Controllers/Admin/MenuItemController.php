@@ -28,6 +28,8 @@ class MenuItemController extends Controller
 
         $data = array();
         $data['menu_items'] = $items ;
+//        $data['total'] = $items->total();
+
         return view('admin.content.menu.menuitems.index',$data) ;
     }
     public function create() {

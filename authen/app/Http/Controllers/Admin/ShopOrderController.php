@@ -18,6 +18,8 @@ class ShopOrderController extends Controller
         $items = DB::table('orders')->paginate(10);
         $data = array();
         $data['orders'] = $items ;
+        $data['total'] = $items->total();
+
         return view('admin.content.shop.order.index',$data) ;
     }
     public function edit($id){
